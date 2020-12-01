@@ -1,0 +1,82 @@
+<!--    
+    我人傻了= =
+    做着做着发现变成了抽奖
+    问题不大吧XD        
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main.css">
+    <script src="./main.js"></script>
+    <title>抽奖</title>
+</head>
+
+<body>
+    <!-- <div id="Top-Image"><img src="./暂.png"></div> -->
+    <div class="row">
+        <!-- <div class="Side-Image Left"><img src="./暂.png"></div> -->
+        <div class="notice">
+            <span class="text">9</span>
+        </div>
+        <div class="main">
+            <div class="left-content ">
+                <table id="left-table">
+                    <tr>
+                        <th>参与者</th>
+                        <th>中奖</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="right-content">
+                <table id="right-table">
+                    <tr>
+                        <th>内容</th>
+                        <th>概率</th>
+                        <th>标签</th>
+                    </tr>
+                </table>
+            </div>
+            <!-- <div class="setting">
+                <i id="setting"></i> -->
+            <span class="setting">
+                <img src="./img/设置按钮.png" onclick="Setting_btn()">
+            </span>
+            <div class="setting-interface">
+                <div class="add award">
+                    <div>添加奖品</div>
+                    <div>内容:
+                        <input type="text" id="award">
+                    </div>
+                    <div>概率(%)
+                        <input type="text" id="chance">
+                    </div>
+                    <div>标签:
+                        <input type="text" id="tag">
+                    </div>
+                    <button type="submit" onclick="Award_S()">添加</button>
+                </div>
+                <div class="add concent">
+                    <div>添加参与者</div>
+                    <div>参与者:
+                        <input type="text" id="content">
+                    </div>
+                    <button type="submit" onclick="Content_S()">添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="btn">
+        <button onclick="start()">开始抽奖</button>
+        <button onclick="clearall()">清空</button>
+    </div>
+
+    </div>
+</body>
+
+</html>

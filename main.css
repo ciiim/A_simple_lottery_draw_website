@@ -1,0 +1,248 @@
+body{
+    background-color: rgb(152, 248, 255);
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#Top-Image img{
+    width:800px; 
+    height:150px;
+}/*顶上的广告*/
+#Top-Image{
+    text-align: center;
+    width: 100%;;
+    padding-top: 50px;
+}
+
+.Side-Image img{
+    height: 500px;
+    width: 100px;
+}
+
+.Side-Image{
+    float: left;
+}
+
+.Right{
+    right: 0;
+    padding-right: 50px;
+}
+
+.Left{
+    padding-left: 50px;
+}
+
+/*-----------------------------主体--------------------------*/
+
+.row{
+    position: relative;
+    overflow: hidden;
+}
+
+.left-content{
+    height: 500px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    float: left;
+    margin-right: 20px;
+    background-color: rgba(162, 218, 110, 0.61);    
+}
+
+.right-content{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 500px;
+    float: left;
+    background-color: rgba(162, 218, 110, 0.61);
+}
+
+.main{
+    height: 550px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn button{
+    background-color: rgba(162, 218, 110, 0.61);
+    border: none;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+    margin-left: 30px;
+    margin-right: 90px;
+    margin-top: 20px;
+    text-decoration: none;
+    transition: 0.3s;
+    outline: none;
+}
+
+.btn button:hover{
+    background-color: rgba(105, 218, 0, 0.61);
+    cursor: pointer;
+    transition: 0.3s;
+    transform: scale(1.1);
+}
+
+.btn button:active{
+    background-color: rgba(72, 150, 0, 0.733);
+}
+
+/*设置*/
+
+.setting img{
+    width: 45px;
+    height: 45px;
+}
+
+.setting{
+    position: relative;
+    margin-bottom: 450px;
+    margin-left: 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.setting:hover{
+    cursor: pointer;
+    transition: 0.3s;
+    transform: scale(1.05);
+}
+
+.setting:active{
+    transition: 0.3s;
+    transform: scale(1.15);
+}
+
+.setting-interface{
+    display:flex;
+    opacity: 0;
+    position: absolute;
+    padding:20px;
+    margin-right: 50px;
+    background-color: rgb(182, 207, 158);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.setting-interface input{
+    border: 0;
+    border-bottom: 1px solid rgba(255, 251, 238, 0.418);
+    outline: none;
+    background-color: rgb(182, 207, 158);
+    opacity: 1;
+}
+
+/*----------表格内-----------*/
+th{
+    border: 2px solid rgba(255, 255, 255, 0.521);
+    padding: 5px 20px 5px 20px;
+    font-weight: bold;
+}
+
+table{
+    padding:10px;
+}
+
+table i{
+    background-color: rgba(255, 78, 78, 0.7);
+    font-size: 10px;
+    font-style: normal;
+    color: honeydew;
+    margin: 5px;
+    margin-left: -10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 2px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+table i:hover{
+    background-color: rgba(255, 0, 0, 0.9);
+    transition: 0.2s;
+}
+
+/*加入东西*/
+
+.add{
+    position: relative;
+    margin: 20px;
+    padding:20px;
+    font-size: 17px;
+    border: 2px solid rgba(0, 0, 0, 0.288);
+    width: 300px;
+}
+
+.add div{
+    margin: 10px;
+}
+
+.add button{
+    position: absolute;
+    border: 0;
+    top: 25%;
+    right: 8%;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color:  rgb(169, 192, 147);
+    transition: 0.2s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.add button:hover{
+    background-color:  rgb(144, 163, 125);
+    transition: 0.2s;
+}
+
+.add button:active{
+    transform: scale(1.05);
+    transition: 0.1s;
+}
+
+.concent button{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/*提示*/
+
+.notice{
+    position: absolute;
+    right: 210px;
+    background-color: rgba(154, 212, 154, 0.685);
+    opacity:0;
+    display: block;
+    width: 200px;
+    height: 100px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.notice span{
+    display: inline-block;
+    padding-top: 10%;
+    font-size: 20px;
+}
