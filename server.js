@@ -12,7 +12,7 @@ var content = []
 
 var count_award = 0, count_content = 0
 
-app.get('/award', (req, res) => {
+app.get('/award', (req, res) => {//添加奖品
     var chance_total = 0
     res.setHeader('Access-Control-Allow-Origin', '*');
     // 设置响应
@@ -44,7 +44,7 @@ app.get('/award', (req, res) => {
 
 })
 
-app.get('/content', (req, res) => {
+app.get('/content', (req, res) => {//添加参与人（稀烂的变量名）
     // 设置响应
     res.setHeader('Access-Control-Allow-Origin', '*');
     if (count_content == MAXNUM)
@@ -61,7 +61,7 @@ app.get('/content', (req, res) => {
 
 })
 
-app.get('/clear', (req, res) => {
+app.get('/clear', (req, res) => {//清除所有数据
     // 设置响应
     res.setHeader('Access-Control-Allow-Origin', '*');
     award = []
@@ -71,24 +71,26 @@ app.get('/clear', (req, res) => {
     res.send("提示<br>(清除成功)")
 })
 
-app.get('/start', (req, res) => {
+app.get('/start', (req, res) => {//开始抽奖
     // 设置响应
     res.setHeader('Access-Control-Allow-Origin', '*');
-    if (count_content != count_award)
-        res.send("警告<br>(参与者与奖品数量不匹配)")
-    else if (count_award == 0 || count_content == 0)
+    // if (count_content != count_award)
+    //     res.send("警告<br>(参与者与奖品数量不匹配)")
+    if (count_award == 0 || count_content == 0)
         res.send("警告<br>(参与者或奖品为空)")
     else {
-        var localaward = JSON.parse(JSON.stringify(award))
+        var localaward = JSON.parse(JSON.stringify(award))//目的时为了对localaward操作时不会影响到award
         for (var i = 0; i < count_content; i++) {
             var picked = getResult(localaward)
-            if(picked!=-1)
+            if (picked != -1) {
                 content[i]['ispicked'] = localaward[picked]['content']
+                for (var j = picked; j < localaward.length - 1; j++)//去掉已经抽到的奖品
+                    localaward[j] = localaward[j + 1]
+                if (localaward.length != 0)
+                    localaward.length--
+            }
             else
-                content[i]['ispicked']="未中奖"
-            for (var j = picked; j < localaward.length - 1; j++)//去掉已经抽到的奖品
-                localaward[j] = localaward[j + 1]
-            localaward.length--
+                content[i]['ispicked'] = "未中奖"
             console.log(localaward.length)
         }
         res.send("提示<br>(抽签结束)")
@@ -97,7 +99,7 @@ app.get('/start', (req, res) => {
 
 function getResult(arr_origin) {//根据概率抽取随机数
     var leng = 100;
-    var arr=JSON.parse(JSON.stringify(arr_origin))
+    var arr = JSON.parse(JSON.stringify(arr_origin))
     console.log(arr)
     for (var i = 0; i < arr.length; i++) {
         var random_ = parseInt(Math.random() * leng);
@@ -111,7 +113,7 @@ function getResult(arr_origin) {//根据概率抽取随机数
     return -1
 }
 
-app.get('/update', (req, res) => {
+app.get('/update', (req, res) => {//拼接html内容发给前端让其显示
     res.setHeader('Access-Control-Allow-Origin', '*');
     var send_content = "<tr><th>参与者</th><th>中奖</th></tr>"
     for (var i = 0; i < count_content; i++) {
@@ -124,7 +126,7 @@ app.get('/update', (req, res) => {
     res.send(send_content)
 })
 
-app.get('/del', (req, res) => {
+app.get('/del', (req, res) => {//删除功能
     res.setHeader('Access-Control-Allow-Origin', '*');
     if (req.query.type == "people") {
         for (var i = parseInt(req.query.id); i < count_content - 1; i++)

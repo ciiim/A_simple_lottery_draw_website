@@ -12,10 +12,10 @@ window.onload = () => {
         // IE6, IE5 浏览器执行代码
         xhr = new ActiveXObject("Microsoft.XMLHTTP");
     }
-    Update()
+    Update()//防止用户f5之后数据与后端不同步
 }
 
-function start() {
+function start() {//请求开始抽奖
     xhr.open('get', 'http://127.0.0.1:8000/start')
     xhr.send()
     xhr.onreadystatechange = function () {
@@ -34,7 +34,7 @@ function start() {
     }
 }
 
-function clearall() {
+function clearall() {//请求清除所有数据
     xhr.open('get', 'http://127.0.0.1:8000/clear')
     xhr.send()
     xhr.onreadystatechange = function () {
@@ -53,7 +53,7 @@ function clearall() {
     }
 }
 
-function Setting_btn() {
+function Setting_btn() {//控制添加页面的效果（同样奇葩的变量名= =）
     if (isclick) {
         // setting[0].style.display="none"
         var opacity_ = 1
@@ -87,7 +87,7 @@ function Setting_btn() {
     }
 }
 
-function Award_S() {
+function Award_S() {//添加奖品
     var content = document.getElementById('award').value
     var chance = document.getElementById('chance').value
     var tag = document.getElementById('tag').value
@@ -110,7 +110,7 @@ function Award_S() {
 
 }
 
-function Del(e) {
+function Del(e) {//请求删除某个东西
     var type = e.id.split("-")
     xhr.open('get', 'http://127.0.0.1:8000/del?id=' + type[1] + '&type=' + type[0])
     xhr.send()
@@ -130,7 +130,7 @@ function Del(e) {
     }
 }
 
-function Content_S() {
+function Content_S() {//添加参与人发送给后端
     var people = document.getElementById('content').value
     xhr.open('get', 'http://127.0.0.1:8000/content?people=' + people+'&ispicked='+'')
     xhr.send()
@@ -176,7 +176,7 @@ function Content_S() {
 //     }, 200);
 // }//测试，未启用
 
-function Notice(text, color) {
+function Notice(text, color) {//提示模块
     var opacity_ = 0
     var Ctext = document.getElementsByClassName('text')[0]
     Ctext.innerHTML = text
@@ -197,7 +197,7 @@ function Notice(text, color) {
         }, 1300);
 }
 
-function Update() {
+function Update() {//请求更新内容
     var content
     xhr.open('get', 'http://127.0.0.1:8000/update')
     xhr.send()
